@@ -1,0 +1,512 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     17481,        503]
+NotebookOptionsPosition[     17022,        485]
+NotebookOutlinePosition[     17368,        500]
+CellTagsIndexPosition[     17325,        497]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{"--", 
+    RowBox[{"--", 
+     RowBox[{"--", 
+      RowBox[{"--", 
+       RowBox[{"--", 
+        RowBox[{"--", 
+         RowBox[{"--", 
+          RowBox[{"-", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"Reactions", "--"}], "--"}], "--"}], "--"}], 
+                 "--"}], "--"}], "--"}], "--"}], "--"}], 
+            "--"}]}]}]}]}]}]}]}]}], "-"}], "*)"}]], "Input",
+ CellChangeTimes->{{3.5099610288125*^9, 3.50996104040625*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"OH", "+", "H2"}], "\[Rule]", 
+     RowBox[{"H", "+", "H2O"}]}], ",", " ", "k1"}], "}"}], ",", 
+  "\[IndentingNewLine]", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"OH", "+", "ho2"}], "\[Rule]", 
+     RowBox[{"HO2", "+", "oh"}]}], ",", " ", "k2"}], "}"}], ",", 
+  "\[IndentingNewLine]", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"OH", "+", "H2O2"}], "\[Rule]", 
+     RowBox[{"HO2", "+", "H2O"}]}], ",", " ", "k3"}], "}"}], ",", 
+  "\[IndentingNewLine]", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"OH", "+", "o2"}], "\[Rule]", 
+     RowBox[{"O2", "+", "oh"}]}], ",", " ", "k4"}], "}"}], ",", 
+  "\[IndentingNewLine]", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"OH", "+", "HO2"}], "\[Rule]", 
+     RowBox[{"O2", "+", "H2O"}]}], ",", " ", "k5"}], "}"}], ",", 
+  "\[IndentingNewLine]", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"OH", "+", "OH"}], "\[Rule]", "H2O2"}], ",", " ", "k6"}], "}"}], 
+  ",", "\[IndentingNewLine]", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"OH", "+", "eaq"}], "\[Rule]", "oh"}], ",", " ", "k7"}], "}"}], 
+  ",", "\[IndentingNewLine]", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"H", "+", "O2"}], "\[Rule]", "HO2"}], ",", " ", "k8"}], "}"}], 
+  ",", "\[IndentingNewLine]", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"H", "+", "o2"}], "\[Rule]", "ho2"}], ",", " ", "k9"}], "}"}], 
+  ",", "\[IndentingNewLine]", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"H", "+", "HO2"}], "\[Rule]", "H2O2"}], ",", " ", "k10"}], "}"}],
+   ",", "\[IndentingNewLine]", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"H", "+", "H2O2"}], "\[Rule]", 
+     RowBox[{"OH", "+", "H2O"}]}], ",", " ", "k11"}], "}"}], ",", 
+  "\[IndentingNewLine]", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"H", "+", "OH"}], "\[Rule]", "H2O"}], ",", " ", "k12"}], "}"}], 
+  ",", "\[IndentingNewLine]", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"H", "+", "H"}], "\[Rule]", "H2"}], ",", " ", "k13"}], "}"}], 
+  ",", "\[IndentingNewLine]", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"eaq", "+", "O2"}], "\[Rule]", "o2"}], ",", " ", "k14"}], "}"}], 
+  ",", "\[IndentingNewLine]", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"eaq", "+", "o2"}], "\[Rule]", 
+     RowBox[{"ho2", "+", "oh"}]}], ",", " ", "k15"}], "}"}], ",", 
+  "\[IndentingNewLine]", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"eaq", "+", "HO2"}], "\[Rule]", "ho2"}], ",", " ", "k16"}], 
+   "}"}], ",", "\[IndentingNewLine]", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"eaq", "+", "H"}], "\[Rule]", 
+     RowBox[{"H2", "+", "oh"}]}], ",", " ", "k17"}], "}"}], ",", 
+  "\[IndentingNewLine]", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"eaq", "+", "H2O2"}], "\[Rule]", 
+     RowBox[{"OH", "+", "oh"}]}], ",", " ", "k18"}], "}"}], ",", 
+  "\[IndentingNewLine]", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"eaq", "+", "h"}], "\[Rule]", "H"}], ",", " ", "k19"}], "}"}], 
+  ",", "\[IndentingNewLine]", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"eaq", "+", "eaq"}], "\[Rule]", 
+     RowBox[{"H2", "+", "oh", "+", "oh"}]}], ",", " ", "k20"}], "}"}], ",", 
+  "\[IndentingNewLine]", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"HO2", "+", "o2"}], "\[Rule]", 
+     RowBox[{"O2", "+", "ho2"}]}], ",", " ", "k21"}], "}"}], ",", 
+  "\[IndentingNewLine]", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"HO2", "+", "HO2"}], "\[Rule]", 
+     RowBox[{"O2", "+", "H2O2"}]}], ",", " ", "k22"}], "}"}], ",", 
+  "\[IndentingNewLine]", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"HO2", "+", "H2O2"}], "\[Rule]", 
+     RowBox[{"O2", "+", "OH", "+", "H2O"}]}], ",", " ", "k23"}], "}"}], ",", 
+  "\[IndentingNewLine]", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"HO2", "\[Rule]", 
+     RowBox[{"h", "+", "o2"}]}], ",", " ", "k24"}], "}"}], ",", 
+  "\[IndentingNewLine]", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"h", "+", "o2"}], "\[Rule]", "HO2"}], ",", " ", "k25"}], "}"}], 
+  ",", "\[IndentingNewLine]", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"H2O2", "\[Rule]", 
+     RowBox[{"h", "+", "ho2"}]}], ",", " ", "k26"}], "}"}], ",", 
+  "\[IndentingNewLine]", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"h", "+", "ho2"}], "\[Rule]", "H2O2"}], ",", " ", "k27"}], "}"}],
+   ",", "\[IndentingNewLine]", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"h", "+", "oh"}], "\[Rule]", "H2O"}], ",", " ", "k28"}], "}"}], 
+  ",", "\[IndentingNewLine]", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"H2O", "\[Rule]", 
+     RowBox[{"h", "+", "oh"}]}], ",", " ", "k29"}], "}"}], ",", 
+  "\[IndentingNewLine]", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"H", "+", "oh"}], "\[Rule]", 
+     RowBox[{"eaq", "+", "H2O"}]}], ",", " ", "k30"}], "}"}], ",", 
+  "\[IndentingNewLine]", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"o2", "+", "o2"}], "\[Rule]", 
+     RowBox[{"O2", "+", "ho2", "+", "oh"}]}], ",", " ", "k31"}], "}"}], ",", 
+  "\[IndentingNewLine]", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"o2", "+", "H2O2"}], "\[Rule]", 
+     RowBox[{"O2", "+", "oh", "+", "OH"}]}], ",", " ", "k32"}], 
+   "}"}]}]], "Input",
+ CellChangeTimes->{{3.50987273609375*^9, 3.50987273765625*^9}, {
+   3.509872787140625*^9, 3.509872803890625*^9}, {3.50987576909375*^9, 
+   3.50987594109375*^9}, 3.5098760975*^9, {3.50987613459375*^9, 
+   3.509876267515625*^9}, {3.50987631521875*^9, 3.509876477328125*^9}, {
+   3.509876508*^9, 3.509877211078125*^9}, {3.509945729265625*^9, 
+   3.5099457964375*^9}, {3.50996088875*^9, 3.509960990578125*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"--", 
+    RowBox[{"--", 
+     RowBox[{"--", 
+      RowBox[{"--", 
+       RowBox[{"--", 
+        RowBox[{"--", 
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"--", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"Krec", "--"}], "--"}], "--"}], "--"}], "--"}], 
+                "--"}], "--"}], "--"}], "--"}]}]}]}]}]}]}]}]}]}], 
+   "*)"}]}]], "Input",
+ CellChangeTimes->{
+  3.50987294484375*^9, {3.509958325859375*^9, 3.509958354078125*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"k1", "\[Rule]", " ", 
+    RowBox[{"4.2", "*", 
+     RowBox[{"10", "^", "7"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k2", "\[Rule]", " ", 
+    RowBox[{"7.5", "*", 
+     RowBox[{"10", "^", "9"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k3", "\[Rule]", " ", 
+    RowBox[{"2.7", "*", 
+     RowBox[{"10", "^", "7"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k4", "\[Rule]", " ", 
+    RowBox[{"8", "*", 
+     RowBox[{"10", "^", "9"}]}]}], ",", "\[IndentingNewLine]", " ", 
+   RowBox[{"k5", "\[Rule]", " ", 
+    RowBox[{"6", "*", 
+     RowBox[{"10", "^", "9"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k6", "\[Rule]", " ", 
+    RowBox[{"5.5", "*", 
+     RowBox[{"10", "^", "9"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k7", "\[Rule]", "  ", 
+    RowBox[{"3", "*", 
+     RowBox[{"10", "^", "10"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k8", "\[Rule]", 
+    RowBox[{"2.1", "*", 
+     RowBox[{"10", "^", "10"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k9", "\[Rule]", " ", 
+    RowBox[{"2", "*", 
+     RowBox[{"10", "^", "10"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k10", "\[Rule]", " ", 
+    RowBox[{"1", "*", 
+     RowBox[{"10", "^", "10"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k11", "\[Rule]", " ", 
+    RowBox[{"9", "*", 
+     RowBox[{"10", "^", "7"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k12", "\[Rule]", " ", 
+    RowBox[{"7", "*", 
+     RowBox[{"10", "^", "9"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k13", "\[Rule]", " ", 
+    RowBox[{"7.8", "*", 
+     RowBox[{"10", "^", "9"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k14", "\[Rule]", " ", 
+    RowBox[{"1.9", "*", 
+     RowBox[{"10", "^", "10"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k15", "\[Rule]", " ", 
+    RowBox[{"1.3", "*", 
+     RowBox[{"10", "^", "10"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k16", "\[Rule]", " ", 
+    RowBox[{"2", "*", 
+     RowBox[{"10", "^", "10"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k17", "\[Rule]", 
+    RowBox[{"2.5", "*", 
+     RowBox[{"10", "^", "10"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k18", "\[Rule]", " ", 
+    RowBox[{"1.1", "*", 
+     RowBox[{"10", "^", "10"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k19", "\[Rule]", 
+    RowBox[{"2.3", "*", 
+     RowBox[{"10", "^", "10"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k20", "\[Rule]", 
+    RowBox[{"5.5", "*", 
+     RowBox[{"10", "^", "9"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k21", "\[Rule]", 
+    RowBox[{"9.5", "*", 
+     RowBox[{"10", "^", "7"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k22", "\[Rule]", " ", 
+    RowBox[{"8.1", "*", 
+     RowBox[{"10", "^", "5"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k23", "\[Rule]", " ", "3.7"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k24", "\[Rule]", " ", 
+    RowBox[{"7", "*", 
+     RowBox[{"10", "^", "5"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k25", "\[Rule]", " ", 
+    RowBox[{"4.5", "*", 
+     RowBox[{"10", "^", "10"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k26", "\[Rule]", "0.0356"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k27", "\[Rule]", " ", 
+    RowBox[{"2", "*", 
+     RowBox[{"10", "^", "10"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k28", "\[Rule]", 
+    RowBox[{"1.4", "*", 
+     RowBox[{"10", "^", "11"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k29", "\[Rule]", " ", 
+    RowBox[{"2.5", "*", 
+     RowBox[{"10", "^", 
+      RowBox[{"(", 
+       RowBox[{"-", "5"}], ")"}]}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k30", "\[Rule]", 
+    RowBox[{"1.8", "*", 
+     RowBox[{"10", "^", "7"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k31", "\[Rule]", " ", "0.3"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k32", "\[Rule]", " ", "16"}]}], "}"}]], "Input",
+ CellChangeTimes->{{3.50987292321875*^9, 3.50987293471875*^9}, {
+   3.509877246125*^9, 3.5098772645625*^9}, {3.5099017391216197`*^9, 
+   3.5099018649856195`*^9}, {3.5099019040556197`*^9, 3.50990204732362*^9}, {
+   3.5099021124176197`*^9, 3.5099023250136194`*^9}, {3.5099023570756197`*^9, 
+   3.50990251817762*^9}, {3.5099452764375*^9, 3.509945402828125*^9}, {
+   3.5099559336875*^9, 3.509955942515625*^9}, 3.50995802840625*^9, {
+   3.509958420125*^9, 3.509958512890625*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"--", 
+    RowBox[{"--", 
+     RowBox[{"--", 
+      RowBox[{"--", 
+       RowBox[{"--", 
+        RowBox[{"--", 
+         RowBox[{"--", 
+          RowBox[{"--", 
+           RowBox[{"--", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"Kopt", "--"}], "--"}], "--"}], "--"}], "--"}], 
+                "--"}], "--"}], "--"}], "--"}]}]}]}]}]}]}]}]}]}], 
+   "*)"}]}]], "Input",
+ CellChangeTimes->{3.5099586073125*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"k1", "\[Rule]", " ", 
+    RowBox[{"3.74", "*", 
+     RowBox[{"10", "^", "7"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k2", "\[Rule]", " ", 
+    RowBox[{"5", "*", 
+     RowBox[{"10", "^", "9"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k3", "\[Rule]", " ", 
+    RowBox[{"3.8", "*", 
+     RowBox[{"10", "^", "7"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k4", "\[Rule]", " ", 
+    RowBox[{"9.96", "*", 
+     RowBox[{"10", "^", "9"}]}]}], ",", "\[IndentingNewLine]", " ", 
+   RowBox[{"k5", "\[Rule]", " ", 
+    RowBox[{"7.1", "*", 
+     RowBox[{"10", "^", "9"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k6", "\[Rule]", " ", 
+    RowBox[{"5.3", "*", 
+     RowBox[{"10", "^", "9"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k7", "\[Rule]", "  ", 
+    RowBox[{"3", "*", 
+     RowBox[{"10", "^", "10"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k8", "\[Rule]", 
+    RowBox[{"2", "*", 
+     RowBox[{"10", "^", "10"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k9", "\[Rule]", " ", 
+    RowBox[{"2", "*", 
+     RowBox[{"10", "^", "10"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k10", "\[Rule]", " ", 
+    RowBox[{"2", "*", 
+     RowBox[{"10", "^", "10"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k11", "\[Rule]", " ", 
+    RowBox[{"3.44", "*", 
+     RowBox[{"10", "^", "7"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k12", "\[Rule]", " ", 
+    RowBox[{"7", "*", 
+     RowBox[{"10", "^", "9"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k13", "\[Rule]", " ", 
+    RowBox[{"7.9", "*", 
+     RowBox[{"10", "^", "9"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k14", "\[Rule]", " ", 
+    RowBox[{"1.94", "*", 
+     RowBox[{"10", "^", "10"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k15", "\[Rule]", " ", 
+    RowBox[{"1.3", "*", 
+     RowBox[{"10", "^", "10"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k16", "\[Rule]", " ", 
+    RowBox[{"2", "*", 
+     RowBox[{"10", "^", "10"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k17", "\[Rule]", 
+    RowBox[{"2.5", "*", 
+     RowBox[{"10", "^", "10"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k18", "\[Rule]", " ", 
+    RowBox[{"1.14", "*", 
+     RowBox[{"10", "^", "10"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k19", "\[Rule]", 
+    RowBox[{"2.3", "*", 
+     RowBox[{"10", "^", "10"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k20", "\[Rule]", 
+    RowBox[{"5.6", "*", 
+     RowBox[{"10", "^", "9"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k21", "\[Rule]", 
+    RowBox[{"9.5", "*", 
+     RowBox[{"10", "^", "7"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k22", "\[Rule]", " ", 
+    RowBox[{"8.1", "*", 
+     RowBox[{"10", "^", "5"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k23", "\[Rule]", " ", "3.7"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k24", "\[Rule]", " ", 
+    RowBox[{"7", "*", 
+     RowBox[{"10", "^", "5"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k25", "\[Rule]", " ", 
+    RowBox[{"4.5", "*", 
+     RowBox[{"10", "^", "10"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k26", "\[Rule]", "0.0356"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k27", "\[Rule]", " ", 
+    RowBox[{"2", "*", 
+     RowBox[{"10", "^", "10"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k28", "\[Rule]", 
+    RowBox[{"1.4", "*", 
+     RowBox[{"10", "^", "11"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k29", "\[Rule]", " ", 
+    RowBox[{"2.5", "*", 
+     RowBox[{"10", "^", 
+      RowBox[{"(", 
+       RowBox[{"-", "5"}], ")"}]}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k30", "\[Rule]", 
+    RowBox[{"1.8", "*", 
+     RowBox[{"10", "^", "7"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k31", "\[Rule]", " ", "0.3"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"k32", "\[Rule]", " ", "16"}]}], "}"}]], "Input",
+ CellChangeTimes->{{3.50987292321875*^9, 3.50987293471875*^9}, {
+   3.509877246125*^9, 3.5098772645625*^9}, {3.5099017391216197`*^9, 
+   3.5099018649856195`*^9}, {3.5099019040556197`*^9, 3.50990204732362*^9}, {
+   3.5099021124176197`*^9, 3.5099023250136194`*^9}, {3.5099023570756197`*^9, 
+   3.50990251817762*^9}, {3.5099452764375*^9, 3.509945402828125*^9}, {
+   3.5099559336875*^9, 3.509955942515625*^9}, 3.50995802840625*^9, {
+   3.509958420125*^9, 3.509958512890625*^9}, {3.509958647859375*^9, 
+   3.509958771140625*^9}, {3.509958803*^9, 3.509958831125*^9}, {
+   3.5099588686875*^9, 3.509958898234375*^9}}]
+},
+WindowSize->{679, 380},
+WindowMargins->{{74, Automatic}, {-14, Automatic}},
+FrontEndVersion->"7.0 for Microsoft Windows (32-bit) (November 10, 2008)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 683, 23, 31, "Input"],
+Cell[1231, 45, 5723, 183, 652, "Input"],
+Cell[6957, 230, 714, 24, 52, "Input"],
+Cell[7674, 256, 4266, 99, 652, "Input"],
+Cell[11943, 357, 664, 23, 52, "Input"],
+Cell[12610, 382, 4408, 101, 652, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
